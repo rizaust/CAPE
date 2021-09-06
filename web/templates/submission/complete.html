@@ -1,20 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="alert alert-secondary"><h4>Submission complete!</h4>
-    The following tasks were added successfully:
+<div class="alert alert-secondary"><h4>提交成功</h4>
+    以下任务已经成功添加：
     {% for task in tasks %}
         <a href="{% url "submission_status" task %}">{{task}}</a>
     {% endfor %}.
-    Click on the links to monitor the status of the submission.
+    点击链接查看任务状态
 </div>
 
 {% if existent_tasks %}
     {% for sha256, details in existent_tasks.items %}
-        <div class="alert alert-secondary"><h4>Existent tasks for this hash: {{sha256}}!</h4>
+        <div class="alert alert-secondary"><h4>存在相同哈希的任务: {{sha256}}!</h4>
             <ul>
                 {% for block in details %}
-                    <li>Task id: <a href="{% url "report" block.info.id %}"><span>{{block.info.id}}</span></a> {% if block.family  %} - Detection: <span style="color:#EE1B2F;">{{block.malfamily}}</span>{% endif %}</li>
+                    <li>Task id: <a href="{% url "report" block.info.id %}"><span>{{block.info.id}}</span></a> {% if block.family  %} - 检测: <span style="color:#EE1B2F;">{{block.malfamily}}</span>{% endif %}</li>
                 {% endfor %}
             </ul>
         </div>
@@ -22,7 +22,7 @@
 {% endif %}
 
 {% if errors %}
-    <div class="alert alert-danger"><h4>Submission Failed!</h4>
+    <div class="alert alert-danger"><h4>提交失败!</h4>
     <ul>
     {% for block in errors %}
         {% for k, v in block.items %}

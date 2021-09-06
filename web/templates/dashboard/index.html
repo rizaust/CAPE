@@ -2,26 +2,26 @@
 {% block content %}
 
 <div class="alert alert-primary" style="text-align: center;font-size: 22px; color: white;">
-    Estimating ~<b>{{report.estimate_hour}}</b> analysis per hour, <b>{{report.estimate_day}}</b> per day.
+    预估时间 ~<b>{{report.estimate_hour}}</b> 每小时分析, <b>{{report.estimate_day}}</b> 每天.
 </div>
 
 <div class="row">
     <div class="col-md-6">
         <div class="jumbotron" style="text-align: center;">
             <h1>{{report.total_tasks}}</h1>
-            Total tasks
+            总体任务
         </div>
     </div>
     <div class="col-md-6">
         <div class="jumbotron" style="text-align: center;">
             <h1>{{report.total_samples}}</h1>
-            Total samples
+            总体样本
         </div>
     </div>
 </div>
 
 {% if report.top_detections %}
-<h4>Top 20 detections</h4>
+<h4>top20检出</h4>
     <table class="table table-striped table-bordered table-sm">
         {% for block in report.top_detections %}
         <td style="text-align:center">

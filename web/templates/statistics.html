@@ -2,10 +2,10 @@
 {% block content %}
 {% if statistics %}
 
-<h4>Information for {{days}} days. Total number of tasks: {{statistics.total}}, Average per day: {{statistics.average}}</h4>
+<h4> {{days}} 天的信息. 总任务数: {{statistics.total}}, 平均每天: {{statistics.average}}个</h4>
 
 {% if statistics.detections %}
-<h4>Top 20 detections</h4>
+<h4>Top20检出</h4>
   <table class="table table-striped table-bordered">
     {% for block in statistics.detections %}
       {% if block.family %}
@@ -21,7 +21,7 @@
 </table>
 {% endif %}
 
-<h4>Tasks per day</h4>
+<h4>任务每日</h4>
 <table class="table table-striped table-hover">
     <thead>
       <tr>
@@ -47,15 +47,15 @@
 <hr />
 
   {% if statistics.custom_signatures %}
-  <h4>Custom Signatures data only for Volatility/static extraction</h4>
+  <h4>仅为 Volatility/static extraction 自定义签名数据</h4>
   <table class="table table-striped table-hover">
     <thead>
       <tr>
-        <th scope="col">Name</th>
-        <th scope="col">Total time in minutes</th>
-        <th scope="col">Runs</th>
-        <th scope="col">Extracted </th>
-        <th scope="col">Average time in minutes(Total/runs)</th>
+        <th scope="col">名称</th>
+        <th scope="col">总时间（分钟）</th>
+        <th scope="col">次数</th>
+        <th scope="col">已提取 </th>
+        <th scope="col">平均时间（分钟）</th>
       </tr>
     </thead>
     <tbody>
@@ -71,7 +71,7 @@
     </tbody>
   </table>
 {% endif %}
-<h4>Time per module</h4>
+<h4>每个模块用时</h4>
 <div class="container">
     <div class="row">
         {% if statistics.processing %}
@@ -80,10 +80,10 @@
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Total time in minutes</th>
-                  <th scope="col">Runs</th>
-                  <th scope="col">Average time in minutes(Total/runs)</th>
+                  <th scope="col">名称</th>
+                  <th scope="col">总时间（分钟）</th>
+                  <th scope="col">次数</th>
+                  <th scope="col">平均时间（分钟）</th>
                 </tr>
               </thead>
               <tbody>
@@ -101,14 +101,14 @@
         {% endif %}
         {% if statistics.signatures %}
         <div class="col-sm">
-            <h4>Signatures</h4>
+            <h4>签名</h4>
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Total time in minutes</th>
-                  <th scope="col">Runs</th>
-                  <th scope="col">Average time in minutes(Total/runs)</th>
+                  <th scope="col">名称</th>
+                  <th scope="col">总时间（分钟）</th>
+                  <th scope="col">次数</th>
+                  <th scope="col">平均时间（分钟）</th>
                 </tr>
               </thead>
               <tbody>
@@ -126,14 +126,14 @@
         {% endif %}
         {% if statistics.reporting %}
         <div class="col-sm">
-            <h4>Reporting</h4>
+            <h4>报告</h4>
             <table class="table table-striped table-hover">
               <thead>
                 <tr>
-                  <th scope="col">Name</th>
-                  <th scope="col">Total time in minutes</th>
-                  <th scope="col">Runs</th>
-                  <th scope="col">Average time in minutes(Total/runs)</th>
+                  <th scope="col">名称</th>
+                  <th scope="col">总时间（分钟）</th>
+                  <th scope="col">次数</th>
+                  <th scope="col">平均时间（分钟）</th>
                 </tr>
               </thead>
               <tbody>
@@ -153,11 +153,11 @@
 </div>
 
 {% else %}
-    <div class="alert alert-primary">No statistics found.</div>
+    <div class="alert alert-primary">未找到统计结果.</div>
 {% endif %}
 
 {% if statistics.distributed_tasks %}
-<h4>Cluster details</h4>
+<h4>集群详情</h4>
 <div class="container">
     <div class="row">
         {% for day, block in statistics.distributed_tasks.items %}

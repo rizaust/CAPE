@@ -2,12 +2,12 @@
 {% block content %}
 
 {% if completed %}
-    <div class="alert alert-secondary"><h4>Good news! :-)</h4>The analysis is completed, you can view it <a href="{% url "report" task_id %}">here</a>.</div>
+    <div class="alert alert-secondary"><h4>好消息！ :-)</h4>分析完成，可以查看 <a href="{% url "report" task_id %}">here</a>.</div>
 {% else %}
     <script type="text/JavaScript">setTimeout("location.reload(true);",30000);</script>
     <div class="alert alert-secondary">
-        <h4>Hang on...</h4>
-        <p>The analysis is not finished yet, it's still <b>{{status}}</b>. This page will refresh every 30 seconds.</p>
+        <h4>稍等</h4>
+        <p>正在 <b>{{status}}</b>。 本页面每30s刷新一次</p>
         <div class="progress progress-striped active" style="margin-top: 10px;">
             <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%"></div>
         </div>
