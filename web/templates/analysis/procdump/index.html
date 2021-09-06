@@ -1,0 +1,8 @@
+<script src="{{ STATIC_URL }}js/hexdump.js"></script>
+{% if procdump|length > 0 %}
+    {% for file in procdump %}
+        {% include "analysis/generic/_file_info.html" %}
+    {% endfor %}
+{% else %}
+    <div class="alert alert-secondary"><b>Sorry!</b> No process dumps.</div>
+{% endif %}

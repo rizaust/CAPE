@@ -1,0 +1,8 @@
+{% load key_tags %}
+{% if CAPE.payloads %}
+    {% for file in CAPE.payloads|dictsortreversed:"size" %}
+        {% include "analysis/generic/_file_info.html" %}
+    {% endfor %}
+{% else %}
+    <div class="alert alert-secondary"><b>Sorry!</b> No CAPE files.</div>
+{% endif %}
